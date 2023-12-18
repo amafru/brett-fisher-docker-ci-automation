@@ -1,5 +1,5 @@
 ---
-name: 02 Build with BuildKit Cache
+name: Build image with BuildKit Cache
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 
 jobs:
   build-image:
-    name: Build Image
+    name: Build Docker Image
     runs-on: ubuntu-latest
     steps:
 
@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: bretfisher/docker-ci-automation:02
+          tags: amafru/docker-ci-automation:02
 #NEW: (START) ##########################################################
           cache-from: type=gha
           cache-to: type=gha,mode=max
